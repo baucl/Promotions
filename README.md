@@ -9,8 +9,11 @@ In the project directory, you can run:
 URL: https://nodejs.org/es/ 
 
 2. Ir al archivo "package.json" y con visual studio code, ejecutar los scripts en este orden.
+    <br />
     a). "server-dependencies" (npm install)
+    <br />
     b). "client-dependencies" (npm install)
+    <br />
     c). "start" (inicia el proyecto)
 
 ## Learn More
