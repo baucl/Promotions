@@ -6,7 +6,7 @@ In the project directory, you can run:
 
 ### `Instalar dependencias npm`
 1. Instalar Node Js (Version LTS) 
-URL: https://nodejs.org/es/ 
+URL: <a href="https://nodejs.org/es/" target="_blank"> https://nodejs.org/es/<a/>
 
 2. Ir al archivo "package.json" y con visual studio code, ejecutar los scripts en este orden.
     <br />
