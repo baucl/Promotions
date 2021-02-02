@@ -1,0 +1,30 @@
+{
+  "name": "Promotion",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server": "node index.js",
+    "client": "cd client && npm start",
+    "start": "concurrently -n 'server,client' -c 'blue,green' \"nodemon server\" \"npm run client\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@azure/cosmos": "^3.9.3",
+    "axios": "^0.21.0",
+    "express": "^4.17.1",
+    "express-jwt": "^6.0.0",
+    "ldapjs": "^2.2.3",
+    "lodash": "^4.17.20",
+    "moment": "^2.29.1",
+    "morgan": "^1.10.0",
+    "nprogress": "^0.2.0",
+    "js-base64": "3.6.0"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "nodemon": "^2.0.6"
+  }
+}
