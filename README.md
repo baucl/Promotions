@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-### `instalar dependencias npm`
+### `Instalar dependencias npm`
 1. Instalar Node Js (Version LTS) 
 URL: https://nodejs.org/es/ 
 
