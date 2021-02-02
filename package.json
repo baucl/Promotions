@@ -6,7 +6,10 @@
   "scripts": {
     "server": "node index.js",
     "client": "cd client && npm start",
-    "start": "concurrently -n 'server,client' -c 'blue,green' \"nodemon server\" \"npm run client\""
+    "start": "concurrently -n 'server,client' -c 'blue,green' \"nodemon server\" \"npm run client\"",
+    "server-dependencies": "npm install",
+    "client-dependencies": "npm install --prefix ./client",
+    "install-all-deps": "concurrently -n 'server install dependencies,client install dependencies' -c 'blue,green' \"npm server-dependencies\" \"npm client-dependencies\""
   },
   "keywords": [],
   "author": "",
