@@ -21,10 +21,15 @@ const SubidaImagenForm = ({
   const dispatch = useDispatch();
   const { Item } = Form;
   const [isRequired, setIsRequired] = useState(imgPromoIsUpload);
+  const [loadingBtn, setLoadingBtn] = useState(false);
   const [imgPromoPreview, setImgPromoPreview] = useState({
     imgData: null,
     type: null,
   });
+  
+  const onClickLoading = () => {
+    setLoadingBtn(true);
+  };
 
   const fileListData = [
     {
@@ -153,7 +158,7 @@ const SubidaImagenForm = ({
             </Col>
           </Row>
           <Row className="float-right">
-            <Button type="primary" htmlType="submit">
+            <Button type="primary" htmlType="submit" loading={loadingBtn} onClick={onClickLoading}>
               Confirmar
             </Button>
           </Row>

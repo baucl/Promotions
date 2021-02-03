@@ -22,6 +22,7 @@ const SubidaImagenForm = ({
   const dispatch = useDispatch();
   const { Item } = Form;
   const [isRequired, setIsRequired] = useState(imgPromoIsUpload);
+  const [loadingBtn, setLoadingBtn] = useState(false);
   const [imgPromoPreview, setImgPromoPreview] = useState({
     imgData: dataUpdate !== null ? dataUpdate.Details.Image.Payload : null,
     type: dataUpdate !== null ? dataUpdate.Details.Image.MimeType : null,
@@ -59,6 +60,10 @@ const SubidaImagenForm = ({
     setTimeout(() => {
       onSuccess("ok");
     }, 0);
+  };
+
+  const onClickLoading = () => {
+    setLoadingBtn(true);
   };
 
   const handleCancel = () => setFile({ previewVisible: false });
@@ -173,7 +178,7 @@ const SubidaImagenForm = ({
             </Col>
           </Row>
           <Row className="float-right">
-            <Button type="primary" htmlType="submit">
+            <Button type="primary" htmlType="submit" loading={loadingBtn} onClick={onClickLoading}>
               Confirmar
             </Button>
           </Row>
