@@ -16,25 +16,57 @@ const authenticacion = (req, res) => {
       url: `${url}:${port}`,
     });
 
-    Array.isArray(domain) &&
-      domain.map((domainData) => {
-        responseAd = searchAuthAd(
-          clientLdap,
-          domainData,
-          ssoDecode,
-          passwordDecode
-        );
-        if (responseAd.success) {
-          return responseAd;
-        } else {
-          return searchAuthAd(
-            clientLdap,
-            domainData,
-            ssoDecode,
-            passwordDecode
+    //conexión AD
+    clientLdap.bind(
+      `${domain[0]}${ssoDecode}`,
+      passwordDecode,
+      (error, result) => {
+        if (result !== null && error === null) {
+          const token = jwt.sign(
+            {
+              check: true,
+            },
+            secret,
+            {
+              expiresIn: "12h",
+            }
           );
+
+          res.send({
+            value: {
+              message: "Usuario Autenticado",
+              token: token,
+              expiration: expirationDateJwt,
+            },
+            success: true,
+            error: null,
+          });
+        } else if (error) {
+          //desconexión AD
+          clientLdap.unbind(() => {
+            if (error.code === "ENOTFOUND") {
+              res.send({
+                value: null,
+                success: false,
+                error: {
+                  error: error,
+                  message: "VPN: No se ha podido establecer conexi\u00F3n.",
+                },
+              });
+            } else {
+              res.send({
+                value: null,
+                success: false,
+                error: {
+                  error: error,
+                  message: "Credenciales incorrectas",
+                },
+              });
+            }
+          });
         }
-      });
+      }
+    );
   } catch (error) {
     res.send({
       value: null,
@@ -45,52 +77,6 @@ const authenticacion = (req, res) => {
       },
     });
   }
-};
-
-const searchAuthAd = (clientLdap, domain, sso, pass) => {
-  var response = {
-    value: {
-      message: "",
-      token: "",
-      expiration: "",
-    },
-    success: false,
-    error: {
-      error: "",
-      message: "",
-    },
-  };
-
-  //conexión AD
-  clientLdap.bind(`${domain}${sso}`, pass, (error, result) => {
-    if (result !== null && error === null) {
-      const token = jwt.sign({ check: true }, secret, {
-        expiresIn: "12h",
-      });
-
-      response.value.message = "Usuario Autenticado";
-      response.value.token = token;
-      response.value.expiration = expirationDateJwt;
-      response.success = true;
-    } else if (error) {
-      //desconexión AD
-      clientLdap.unbind(() => {
-        if (error.code === "ENOTFOUND") {
-          response.error.error = error;
-          response.error.message =
-            "VPN: No se ha podido establecer conexi\u00F3n.";
-          response.value = null;
-          response.success = false;
-        } else {
-          response.value = null;
-          response.success = false;
-          response.error.error = error;
-          response.error.message = "Credenciales incorrectas";
-        }
-      });
-    }
-  });
-  return response;
 };
 
 module.exports = { authenticacion };
