@@ -17,7 +17,7 @@ const configLDAP = {
     scope: "sub",
     attributes: ["memberOf", "displayName", "name"],
   },
-  domain: "cfcorp\\",
+  domain: ["cfcorp\\"],
 };
 
 const expirateJwt = new Date();
