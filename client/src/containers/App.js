@@ -41,6 +41,7 @@ const App = () => {
       <Switch>
         <Route exact path="/signin" component={SignIn} />
         <RestrictedRoute
+          path="/"
           authUser={isAuth}
           expiresJWT={expires}
           component={AppLayout}

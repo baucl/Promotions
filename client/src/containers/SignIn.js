@@ -121,6 +121,13 @@ const SignIn = (props) => {
     } else {
       setClickLoading(false);
     }
+    //inicializa como url "/listado-promociones" siempre que el usuario este logueado correctamente.
+    if (
+      localStorage.getItem("user") === "true" &&
+      window.location.pathname === "/signin"
+    ) {
+      window.location.href = "/listado-promociones";
+    }
   }, [success, message, data]);
 
   const handleChangeCheck = (event) => {
