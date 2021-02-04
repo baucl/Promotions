@@ -18,8 +18,8 @@ import {
   CheckOutlined,
   InfoCircleOutlined,
   FireOutlined,
-  ProfileOutlined,
   ShoppingOutlined,
+  FileTextOutlined,
 } from "@ant-design/icons";
 import { treeData } from "../../../helpers/Promociones/treeData";
 
@@ -213,7 +213,7 @@ const GeneralForm = ({
       </Row>
       <Divider orientation="left">
         <div>
-          LEGALES <ProfileOutlined className="text-info" />
+          LEGALES <FileTextOutlined className="text-info" />
         </div>
       </Divider>
       <Row gutter={16}>

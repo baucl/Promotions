@@ -38,3 +38,17 @@ svg {
 .ant-spin {
   display: contents !important;
 }
+
+.ant-layout-header {
+  background: linear-gradient(to right, #3c71b5, #753c90) !important;
+}
+.ant-menu {
+  background: linear-gradient(to right, #3c71b5, #753c90) !important;
+}
+.ant-menu-dark.ant-menu-horizontal > .ant-menu-item:hover {
+  background-color: #3f88ccad !important;
+}
+
+.ant-menu.ant-menu-dark .ant-menu-item-selected{
+  background-color: #3f88ccad !important;
+}

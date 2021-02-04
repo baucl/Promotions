@@ -45,6 +45,10 @@ const Promociones = ({ dataUpdate, handleOnCloseDrawer }) => {
   });
 
   useEffect(() => {
+    //#region Titulo
+    document.title = "Nueva Promoci\u00F3n - IUD\u00DA";
+    //#endregion
+    
     if (allPromotion != null) {
       setLoading(false);
     } else {

@@ -20,7 +20,7 @@ const RestrictedRoute = ({
       ) : (
         <Redirect
           to={{
-            pathname: "/signin",
+            pathname: "/login",
             state: { from: props.location },
           }}
         />
@@ -39,7 +39,7 @@ const App = () => {
   return (
     <div className="app-main">
       <Switch>
-        <Route exact path="/signin" component={SignIn} />
+        <Route exact path="/login" component={SignIn} />
         <RestrictedRoute
           path="/"
           authUser={isAuth}

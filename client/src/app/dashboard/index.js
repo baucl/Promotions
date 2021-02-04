@@ -26,7 +26,7 @@ const IndexPage = ({ children }) => {
   }, [allPromotion]);
 
   return (
-    <Layout style={{ minHeight: "100vh" }}>
+    <Layout style={{ minHeight: "100vh", background: "linear-gradient(to right,#3c71b5,#753c90)!important" }}>
       <Header className="ant-layout" >
         <Menu theme="dark" defaultSelectedKeys={["1"]} mode="horizontal" >
           <Item key="1" icon={<PicCenterOutlined style={{ fontSize: 22 }} />}>
@@ -42,7 +42,7 @@ const IndexPage = ({ children }) => {
           <Item key="3" icon={<LoginOutlined style={{ fontSize: 22 }} />} className="d-flex align-items-center float-right">
             <Link
               style={{ textDecoration: "none" }}
-              to="/signin"
+              to="/login"
               onClick={deleteLocalStorageInfo}
             >
               Salir
@@ -52,7 +52,7 @@ const IndexPage = ({ children }) => {
       </Header>
       <Content style={{ margin: "0 16px" }}>{children}</Content>
       <Footer style={{ textAlign: "center" }} className="bg-white py-3">
-        {`Promociones - IUD\u00DA © ${new Date().getFullYear()}`}
+        {`IUD\u00DA © ${new Date().getFullYear()}`}
       </Footer>
     </Layout>
   );

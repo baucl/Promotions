@@ -79,6 +79,10 @@ const Estados = () => {
   });
 
   useEffect(() => {
+    //#region Titulo
+      document.title = "Estados - IUD\u00DA";
+    //#endregion
+    
     setLoading(true);
     if (allPromotion !== null && Array.isArray(allPromotion.value)) {
       allPromotion.value.map((item) => {
@@ -305,11 +309,16 @@ const Estados = () => {
         nameEdit = e.target.value;
       }
     } else if (e === "IU" || e === "WM") {
-      const { isEqualsNegocio, negocioResult } = assignSameHotSaleAlert(allPromotion, record, e);
+      const { isEqualsNegocio, negocioResult } = assignSameHotSaleAlert(
+        allPromotion,
+        record,
+        e
+      );
       if (isEqualsNegocio) {
-        message.warning(`No se puede asignar mas de un "HOT SALE" para el negocio ${negocioResult}`);
+        message.warning(
+          `No se puede asignar mas de un "HOT SALE" para el negocio ${negocioResult}`
+        );
         return;
-
       } else {
         negocioEdit = e;
       }
