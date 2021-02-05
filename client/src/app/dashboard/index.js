@@ -35,7 +35,7 @@ const IndexPage = ({ children }) => {
             </Link>
           </Item>
           <Item key="2" icon={<GiftOutlined style={{ fontSize: 22 }} />}>
-            <Link style={{ textDecoration: "none" }} to="/promocion">
+            <Link style={{ textDecoration: "none" }} to="/nueva-promocion">
               Nueva Promoci&oacute;n
             </Link>
           </Item>

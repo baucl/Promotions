@@ -8,7 +8,7 @@ import { withRouter } from "react-router";
 const Routes = () => (
   <Switch>
     <Route exact path={"/listado-promociones"} component={Estados} />
-    <Route exact path={"/promocion"} component={Promociones} />
+    <Route exact path={"/nueva-promocion"} component={Promociones} />
     <Route path="*" component={NotFound} />
   </Switch>
 );
