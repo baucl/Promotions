@@ -40,11 +40,6 @@ const IndexPage = ({ children }) => {
               Nueva Promoci&oacute;n
             </Link>
           </Item>
-          <Item key="3" icon={<ShoppingCartOutlined style={{ fontSize: 22 }} />}>
-            <Link style={{ textDecoration: "none" }} to="/alta-producto">
-              Alta Producto
-            </Link>
-          </Item>
           <Item key="4" icon={<LoginOutlined style={{ fontSize: 22 }} />} className="d-flex align-items-center float-right">
             <Link
               style={{ textDecoration: "none" }}
