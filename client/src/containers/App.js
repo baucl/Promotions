@@ -4,7 +4,7 @@ import { createBrowserHistory } from "history";
 import { Redirect, Route, Switch } from "react-router-dom";
 import AppLayout from "../containers/AppLayout";
 import "bootstrap/dist/css/bootstrap.min.css";
-import SignIn from "../containers/SignIn";
+import Login from "../containers/Login";
 
 const RestrictedRoute = ({
   component: Component,
@@ -39,7 +39,7 @@ const App = () => {
   return (
     <div className="app-main">
       <Switch>
-        <Route exact path="/login" component={SignIn} />
+        <Route exact path="/login" component={Login} />
         <RestrictedRoute
           path="/"
           authUser={isAuth}

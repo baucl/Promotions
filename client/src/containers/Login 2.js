@@ -68,7 +68,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SignIn = (props) => {
+const Login = () => {
   //styles
   const classes = useStyles();
 
@@ -115,22 +115,11 @@ const SignIn = (props) => {
   const { success, message, data } = useSelector(({ auth }) => auth);
 
   useEffect(() => {
-    //#region 
-      document.title = "Login - IUD\u00DA";
-    //#endregion
-
     if (message !== null && !success) {
       setMessageAuth(message);
       setErrorLogin(true);
     } else {
       setClickLoading(false);
-    }
-    //inicializa como url "/listado-promociones" siempre que el usuario este logueado correctamente.
-    if (
-      localStorage.getItem("user") === "true" &&
-      window.location.pathname === "/login"
-    ) {
-      window.location.href = "/listado-promociones";
     }
   }, [success, message, data]);
 
@@ -184,7 +173,7 @@ const SignIn = (props) => {
     return (
       <Typography variant="body2" color="textSecondary" align="center">
         {"Copyright "} &copy;&nbsp;&nbsp;
-        <a target="_blank" href="https://iudu.com.ar">IUD&Uacute;</a> {new Date().getFullYear()}
+        <Link color="inherit">IUD&Uacute;</Link> {new Date().getFullYear()}
         {"."}
       </Typography>
     );
@@ -222,7 +211,7 @@ const SignIn = (props) => {
           <div className={`${classes.paper}`}>
             <div className="animated fast fadeIn">
               <Avatar className={classes.avatar}>
-                <img className="m-4" src="https://www.iudu.com.ar/wp-content/uploads/2020/11/iudu_logo_solo.svg" style={{width: 200 }} />
+                <img src={`data:image/jpeg;base64,${loginImageBase64}`} />
               </Avatar>
             </div>
             <div className="text-center">
@@ -303,4 +292,4 @@ const SignIn = (props) => {
   );
 };
 
-export default SignIn;
+export default Login;
