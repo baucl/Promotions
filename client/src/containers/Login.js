@@ -21,6 +21,7 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import { makeStyles } from "@material-ui/core/styles";
+import moment from "moment";
 import { Base64 } from "js-base64";
 import { save_auth_success, send_credentials } from "../actions/auth";
 
@@ -115,8 +116,8 @@ const Login = () => {
   const { success, message, data } = useSelector(({ auth }) => auth);
 
   useEffect(() => {
-    //#region 
-      document.title = "Login Promociones - IUD\u00DA";
+    //#region
+    document.title = "Login Promociones - IUD\u00DA";
     //#endregion
 
     if (message !== null && !success) {
@@ -128,6 +129,7 @@ const Login = () => {
     //inicializa como url "/listado-promociones" siempre que el usuario este logueado correctamente.
     if (
       localStorage.getItem("user") === "true" &&
+      !moment(new Date()).isAfter(localStorage.getItem("tokenExpiration")) &&
       window.location.pathname === "/login"
     ) {
       window.location.href = "/listado-promociones";
@@ -184,7 +186,10 @@ const Login = () => {
     return (
       <Typography variant="body2" color="textSecondary" align="center">
         {"Copyright "} &copy;&nbsp;&nbsp;
-        <a target="_blank" href="https://iudu.com.ar">IUD&Uacute;</a> {new Date().getFullYear()}
+        <a target="_blank" href="https://iudu.com.ar">
+          IUD&Uacute;
+        </a>{" "}
+        {new Date().getFullYear()}
         {"."}
       </Typography>
     );
@@ -222,7 +227,11 @@ const Login = () => {
           <div className={`${classes.paper}`}>
             <div className="animated fast fadeIn">
               <Avatar className={classes.avatar}>
-                <img className="m-4" src="https://www.iudu.com.ar/wp-content/uploads/2020/11/iudu_logo_solo.svg" style={{width: 200 }} />
+                <img
+                  className="m-4"
+                  src="https://www.iudu.com.ar/wp-content/uploads/2020/11/iudu_logo_solo.svg"
+                  style={{ width: 200 }}
+                />
               </Avatar>
             </div>
             <div className="text-center">
