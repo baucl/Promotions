@@ -133,6 +133,10 @@ const Login = () => {
       window.location.pathname === "/login"
     ) {
       window.location.href = "/listado-promociones";
+    }else{
+      localStorage.removeItem("token");
+      localStorage.removeItem("tokenExpiration");
+      localStorage.removeItem("user");
     }
   }, [success, message, data]);
 
