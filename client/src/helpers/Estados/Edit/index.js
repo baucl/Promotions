@@ -10,6 +10,8 @@ const EditValuesForm = (dataUpdate, generalInfo, imgData) => {
 
   dataUpdate.Benefits !== null &&
     (dataUpdate.Benefits = {
+      Title: generalInfo.Name,
+      Text: generalInfo.Description,
       Actions: dataUpdate.Benefits.Actions,
       Align: dataUpdate.Benefits.Align,
       BackColor: dataUpdate.Benefits.BackColor,
@@ -23,6 +25,8 @@ const EditValuesForm = (dataUpdate, generalInfo, imgData) => {
 
   dataUpdate.Details !== null &&
     (dataUpdate.Details = {
+      Title: generalInfo.Name,
+      Text: generalInfo.Description,
       Actions: dataUpdate.Details.Actions,
       Align: dataUpdate.Details.Align,
       BackColor: dataUpdate.Details.BackColor,
@@ -36,6 +40,8 @@ const EditValuesForm = (dataUpdate, generalInfo, imgData) => {
 
   dataUpdate.HotSale !== null &&
     (dataUpdate.HotSale = {
+      Title: generalInfo.Name,
+      Text: generalInfo.Description,
       Actions: dataUpdate.HotSale.Actions,
       Align: dataUpdate.HotSale.Align,
       BackColor: dataUpdate.HotSale.BackColor,

@@ -80,9 +80,9 @@ const Estados = () => {
 
   useEffect(() => {
     //#region Titulo
-      document.title = "Estados - IUD\u00DA";
+    document.title = "Estados - IUD\u00DA";
     //#endregion
-    
+
     setLoading(true);
     if (allPromotion !== null && Array.isArray(allPromotion.value)) {
       allPromotion.value.map((item) => {
@@ -258,6 +258,9 @@ const Estados = () => {
             : item.ExpirationDate;
         item.DateFrom = dateFromEdit !== null ? dateFromEdit : item.DateFrom;
         item.Name = nameEdit !== null ? nameEdit : item.Name;
+        item.HotSale.Title = nameEdit !== null ? nameEdit : item.Name;
+        item.Benefits.Title = nameEdit !== null ? nameEdit : item.Name;
+        item.Details.Title = nameEdit !== null ? nameEdit : item.Name;
 
         setLoading(true);
         dispatch(put_promotion_data(item));

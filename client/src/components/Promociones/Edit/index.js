@@ -142,7 +142,6 @@ const PromocionesEdicion = ({ dataUpdate, handleOnCloseDrawer }) => {
           generalInfo,
           subidaImagenInfo || newEdit
         );
-
         resultCompleteForm !== null &&
           dispatch(put_promotion_data(resultCompleteForm));
       }
