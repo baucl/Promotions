@@ -16,6 +16,7 @@ const ModalHotSale = ({
   const [imgChangeNewID, setImgChangeNewID] = useState(null);
   const [imgChangeOld, setImgChangeOld] = useState(null);
   const [imgChangeNew, setImgChangeNew] = useState(null);
+  const [imgMimeTypeOld, setImgMimeTypeOld] = useState(null);
   const [imgMimeTypeNew, setImgMimeTypeNew] = useState(null);
   const [imgMimeTypeAssign, setImgMimeTypeAssign] = useState(null);
   const [imgChangeAssignID, setImgChangeAssignID] = useState(null);
@@ -34,6 +35,7 @@ const ModalHotSale = ({
       setImgChangeOldID(imgHotSaleChange.imgDisable.id);
       setImgChangeNewID(imgHotSaleChange.imgEnable.id);
       setImgMimeTypeNew(imgHotSaleChange.imgEnable.HotSale.Image.MimeType);
+      setImgMimeTypeOld(imgHotSaleChange.imgDisable.HotSale.Image.MimeType);
       switch (imgHotSaleChange.imgDisable.Negocio) {
         case "IU":
           setImgChangeNegocio("IUD\u00DA");
@@ -113,9 +115,9 @@ const ModalHotSale = ({
           <Col className="col-9">
             <img
               className="shadow rounded"
-              alt="example"
+              alt={imgChangeNegocio}
               style={{ width: "100%" }}
-              src={`data:${imgMimeTypeNew};base64,${imgChangeOld}`}
+              src={`data:${imgMimeTypeOld};base64,${imgChangeOld}`}
             />
           </Col>
           <Divider orientation="left">
@@ -124,7 +126,7 @@ const ModalHotSale = ({
           <Col className="col-9">
             <img
               className="shadow rounded"
-              alt="example"
+              alt={imgChangeNegocio}
               style={{ width: "100%" }}
               src={`data:${imgMimeTypeNew};base64,${imgChangeNew}`}
             />
